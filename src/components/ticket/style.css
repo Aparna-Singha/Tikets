@@ -1,0 +1,127 @@
+.ticket-container {
+  border-radius: var(--size-6);
+  display: flex;
+  flex-direction: column;
+  border: var(--border-2);
+  overflow: hidden;
+}
+
+.ticket-header {
+  background: var(--color-b);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--size-4);
+}
+
+.ticket-actions {
+  display: flex;
+  gap: var(--size-2);
+}
+
+.ticket-vote {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--size-3);
+  padding: var(--size-2) var(--size-3);
+  background: var(--color-a);
+  border-radius: var(--size-2);
+  width: calc(var(--size-8) * 0.75);
+}
+
+.ticket-vote:not(:disabled):hover {
+  cursor: pointer;
+  box-shadow: var(--shadow-s);
+}
+
+.ticket-vote:not(:disabled):active {
+  cursor: pointer;
+  box-shadow: var(--shadow-l);
+  scale: 0.7;
+}
+
+.ticket-vote-content {
+  font-size: var(--size-4);
+}
+
+.ticket-vote:first-child {
+  border-top-left-radius: calc(var(--size-4) * 0.75);
+  border-bottom-left-radius: calc(var(--size-4) * 0.75);
+}
+
+.ticket-vote:last-child {
+  border-top-right-radius: calc(var(--size-4) * 0.75);
+  border-bottom-right-radius: calc(var(--size-4) * 0.75);
+}
+
+.ticket-status {
+  width: calc(var(--size-8) * 2);
+  background: var(--color-a);
+  color: var(--color-d);
+  padding: var(--size-2) var(--size-4);
+  border-radius: var(--size-3);
+  text-align: center;
+}
+
+.ticket-body {
+  flex: 1;
+  padding: var(--size-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-3);
+}
+
+.ticket-title {
+  font-size: calc(var(--size-7) * 1.5);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ticket-tags {
+  display: flex;
+  gap: var(--size-2);
+  overflow-x: auto;
+}
+
+.ticket-tags::-webkit-scrollbar {
+  height: 0;
+}
+
+.ticket-tag {
+  background-color: var(--color-c);
+  color: var(--color-a);
+  border-radius: var(--size-3);
+  font-size: calc(var(--size-4) * 0.75);
+  padding: var(--size-2) var(--size-4);
+}
+
+.ticket-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--size-3) var(--size-4);
+}
+
+.ticket-author {
+  color: var(--color-c);
+}
+
+.ticket-discussions {
+  width: calc(var(--size-8) * 2.5);
+  background-color: var(--color-b);
+  color: var(--color-c);
+  border-radius: var(--size-3);
+  font-size: var(--size-4);
+  padding: var(--size-2) var(--size-4);
+  text-align: center;
+}
+
+@media screen and (max-width: 500px) {
+  .ticket-footer {
+    flex-direction: column;
+    gap: var(--size-2);
+  }
+}
+

@@ -1,0 +1,50 @@
+.tiket-container {
+  height: calc(var(--size-8) * 4);
+  aspect-ratio: 16 / 9;
+  position: relative;
+  overflow: hidden;
+}
+
+.tiket {
+  height: 100%;
+  width: 100%;
+  background-color: var(--color-b);
+  color: var(--color-c);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--size-7);
+  padding: var(--size-7);
+  border: var(--border-1);
+  font-size: var(--size-8);
+  font-weight: bold;
+  position: relative;
+}
+
+.tiket-icon {
+  height: calc(var(--size-8));
+  width: auto;
+}
+
+.tiket-container::before, .tiket-container::after {
+  position: absolute;
+  content: "";
+  height: 40%;
+  aspect-ratio: 1;
+  border: var(--border-1);
+  border-radius: 50%;
+  background-color: var(--color-a);
+  z-index: 2;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.tiket-container::before {
+  left: 0%;
+}
+
+.tiket-container::after {
+  left: 100%;
+}
+
