@@ -1,9 +1,10 @@
-import { Ticket } from "@components/ticket";
+import { TicketCard } from "@components/ticketcard";
 
 import "./style.css";
 
 export function Tickets() {
   const createDummyTicket = index => ({
+    id: index,
     title: `Placeholder Ticket ${index}`,
     description: `This is a placeholder description for ticket ${index}.`,
     tags: [...Array(Math.floor(
@@ -26,7 +27,7 @@ export function Tickets() {
 
   return (<>
     <div className="tickets">
-      {tickets.map((ticket) => <Ticket
+      {tickets.map((ticket) => <TicketCard
         {...ticket}
         key={ticket.title}
       />)}

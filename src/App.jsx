@@ -1,18 +1,24 @@
+import { HashRouter, Route, Routes } from "react-router-dom";
+
 import { HalfWave } from "@components/halfwave";
-import { Hero } from "@components/hero";
-import { Navbar } from "@components/navbar";
 import { End } from "@components/end";
-import { Tickets } from "@components/tickets";
+import { OrgLanding } from "@components/orglanding";
+import { TicketPage } from "@components/ticketpage";
 
 export function App() {
   return (<>
-    <HalfWave name="app-top" direction="down" />
-    
-    <Hero />    
-    <Navbar />
-    <Tickets />
+    <HashRouter>
+      <HalfWave name="app-top" direction="down" />
 
-    <End />
+      <Routes>
+        <Route path=":orgId">
+          <Route index element={<OrgLanding />} />
+          <Route path=":ticketId" element={<TicketPage />} />
+        </Route>
+      </Routes>
+
+      <End />
+    </HashRouter>
   </>);
 }
 

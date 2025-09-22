@@ -4,6 +4,11 @@
   flex-direction: column;
   border: var(--border-2);
   overflow: hidden;
+  cursor: pointer;
+}
+
+.ticket-container:hover {
+  box-shadow: var(--shadow-l);
 }
 
 .ticket-header {
@@ -12,47 +17,13 @@
   justify-content: space-between;
   align-items: center;
   padding: var(--size-4);
-}
-
-.ticket-actions {
-  display: flex;
-  gap: var(--size-2);
-}
-
-.ticket-vote {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   gap: var(--size-3);
-  padding: var(--size-2) var(--size-3);
-  background: var(--color-a);
-  border-radius: var(--size-2);
-  width: calc(var(--size-8) * 0.75);
 }
 
-.ticket-vote:not(:disabled):hover {
-  cursor: pointer;
-  box-shadow: var(--shadow-s);
-}
-
-.ticket-vote:not(:disabled):active {
-  cursor: pointer;
-  box-shadow: var(--shadow-l);
-  scale: 0.7;
-}
-
-.ticket-vote-content {
-  font-size: var(--size-4);
-}
-
-.ticket-vote:first-child {
-  border-top-left-radius: calc(var(--size-4) * 0.75);
-  border-bottom-left-radius: calc(var(--size-4) * 0.75);
-}
-
-.ticket-vote:last-child {
-  border-top-right-radius: calc(var(--size-4) * 0.75);
-  border-bottom-right-radius: calc(var(--size-4) * 0.75);
+.ticket-id {
+  font-size: var(--size-5);
+  color: var(--color-c);
+  opacity: 0.6;
 }
 
 .ticket-status {

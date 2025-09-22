@@ -1,8 +1,12 @@
-import { TicketMinus, TicketPlus } from "lucide-react";
+import { useCallback } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+
+import { VoteCounter } from "@components/votecounter";
 
 import "./style.css";
 
-export function Ticket({
+export function TicketCard({
+  id,
   title,
   voteCount,
   tags = [],
@@ -10,23 +14,20 @@ export function Ticket({
   author = "Anonymous",
   discussionCount = 0,
 }) {
-  return (<>
-    <div className="ticket-container">
-      <div className="ticket-header">
-        <div className="ticket-actions">
-          <button className="ticket-vote">
-            <TicketPlus className="ticket-vote-content" />
-          </button>
-          
-          <button className="ticket-vote" disabled>
-            <span className="ticket-vote-content">
-              {voteCount.plus}
-            </span>
-          </button>
+  const navigate = useNavigate();
+  const { orgId } = useParams();
 
-          <button className="ticket-vote">
-            <TicketMinus className="ticket-vote-content" />
-          </button>
+  const openTicket = useCallback(() => {
+    navigate(`/${orgId}/${id}`);
+  }, [navigate, orgId, id]);
+
+  return (<>
+    <div className="ticket-container" onClick={openTicket}>
+      <div className="ticket-header">
+        <VoteCounter voteCount={voteCount} />
+
+        <div className="ticket-id">
+          #{id}
         </div>
 
         <div className="ticket-status">
@@ -51,7 +52,7 @@ export function Ticket({
 
       <div className="ticket-footer">
         <span className="ticket-author">
-          Submitted by {author}
+          Raised by {author}
         </span>
 
         <span className="ticket-discussions">
