@@ -1,0 +1,25 @@
+.auth-input-group {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  text-align: center;
+  gap: var(--size-3);
+}
+
+.auth-input {
+  background: var(--color-a);
+  padding: var(--size-4);
+  border-radius: var(--size-4);
+  font-size: var(--size-4);
+  cursor: text;
+  text-align: center;
+}
+
+.auth-input:hover {
+  box-shadow: var(--shadow-cs);
+}
+
+.auth-input:focus {
+  box-shadow: var(--shadow-cl);
+}
+

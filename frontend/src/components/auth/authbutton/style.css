@@ -1,0 +1,37 @@
+.auth-button {
+  background: var(--color-a);
+  color: var(--color-c);
+  padding: var(--size-4);
+  border-radius: var(--size-4);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--size-3);
+}
+
+.auth-button-text {
+  font-size: var(--size-4);
+}
+
+.auth-button-icon {
+  width: var(--size-5);
+  height: var(--size-5);
+}
+
+.auth-button:hover {
+  box-shadow: var(--shadow-cs);
+}
+
+.auth-button:active {
+  box-shadow: var(--shadow-cl);
+  scale: 0.9;
+}
+
+.auth-button:disabled {
+  cursor: not-allowed !important;
+  scale: 1 !important;
+  box-shadow: none !important;
+  opacity: 0.7;
+}
+

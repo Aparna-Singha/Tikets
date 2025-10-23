@@ -1,0 +1,5 @@
+npm run build
+
+echo "window.routerMode = '$1';"  > dist/setup.js
+echo "window.apiBaseUrl = '$2';" >> dist/setup.js
+

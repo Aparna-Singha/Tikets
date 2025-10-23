@@ -1,0 +1,62 @@
+.desk-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--size-8) 0;
+  gap: var(--size-4);
+}
+
+.desk-hero-title {
+  font-size: var(--size-8);
+  font-weight: bold;
+  text-align: center;
+}
+
+.desk-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--size-4);
+}
+
+.desk-hero-action {
+  background: var(--color-b);
+  color: var(--color-d);
+  padding: var(--size-3) var(--size-4);
+  border-radius: var(--size-3);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--size-3);
+}
+
+.desk-hero-action:hover {
+  box-shadow: var(--shadow-cs);
+}
+
+.desk-hero-action:active {
+  box-shadow: var(--shadow-cl);
+  scale: 0.8;
+}
+
+.desk-hero-action-icon {
+  width: var(--size-5);
+}
+
+.desk-hero-action-text {
+  font-size: var(--size-4);
+}
+
+@media screen and (max-width: 800px) {
+  .desk-hero-title {
+    font-size: calc(var(--size-7) * 1.5);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .desk-hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+

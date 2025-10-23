@@ -1,0 +1,53 @@
+.auth-help-box {
+  background: var(--color-b);
+  padding: var(--size-7);
+  border-radius: var(--size-7);
+  width: calc(var(--size-8) * 8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--size-6);
+}
+
+.auth-help-steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-4);
+  align-self: stretch;
+  counter-reset: step;
+}
+
+.auth-help-step {
+  background: var(--color-a);
+  padding: var(--size-4);
+  border-radius: var(--size-3);
+  display: flex;
+  align-items: center;
+  gap: var(--size-4);
+}
+
+.auth-help-step::before {
+  counter-increment: step;
+  content: counter(step);
+  background: var(--color-c);
+  color: var(--color-a);
+  min-width: var(--size-6);
+  min-height: var(--size-6);
+  border-radius: var(--size-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.auth-help-step a {
+  cursor: pointer;
+  color: var(--color-c);
+}
+
+@media screen and (max-width: 600px) {
+  .auth-help-box {
+    width: 100%;
+  }
+}
+

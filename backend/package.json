@@ -1,0 +1,30 @@
+{
+  "name": "tikets-be",
+  "version": "1.0.0",
+  "description": "Backend for Tikets",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "src/main.js",
+  "imports": {
+    "#models/*": "./src/models/*",
+    "#routes/*": "./src/routes/*",
+    "#middlewares/*": "./src/middlewares/*",
+    "#utils/*": "./src/utils/*"
+  },
+  "scripts": {
+    "dev": "nodemon src/main.js",
+    "start": "node src/main.js"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.18.2"
+  }
+}

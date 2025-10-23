@@ -1,0 +1,53 @@
+@import "@styles/fonts.css";
+@import "@styles/variables.css";
+@import "@styles/animations.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-n);
+  background: transparent;
+  color: inherit;
+  transition: all 0.3s ease-in-out;
+  outline: none;
+  border: none;
+  cursor: inherit;
+}
+
+html, body, #root {
+  transition: none;
+  min-height: 100%;
+  width: 100%;
+  font-size: 16px;
+  background-color: var(--color-a);
+  color: var(--color-d);
+  cursor: default;
+  position: relative;
+}
+
+html, body {
+  height: 100%;
+  background-color: var(--color-b);
+}
+
+body {
+  overflow-x: hidden;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+::-webkit-scrollbar {
+  width: var(--size-4);
+  background-color: var(--color-c);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-b);
+  border-radius: var(--size-4);
+  border: var(--border-2);
+}
+

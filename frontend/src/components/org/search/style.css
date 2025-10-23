@@ -1,0 +1,40 @@
+.search {
+  max-width: 100%;
+  flex: 1;
+  display: flex;
+  background: var(--color-a);
+  border-radius: var(--size-8);
+  align-items: center;
+  padding: var(--size-4) var(--size-6);
+  gap: var(--size-4);
+  cursor: text;
+  overflow: hidden;
+}
+
+.search:hover {
+  box-shadow: var(--shadow-cs);
+}
+
+.search:active,
+.search:has(:focus-within) {
+  box-shadow: var(--shadow-cl);
+}
+
+.search-icon {
+  width: auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  color: var(--color-c);
+}
+
+.search-icon.loading {
+  animation: spin 1s linear infinite;
+}
+
+.search-input {
+  flex: 1;
+  font-size: var(--size-5);
+}
+

@@ -1,0 +1,95 @@
+.mod-ticket {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-a);
+  border: var(--border-2);
+  border-radius: var(--size-4);
+  overflow: hidden;
+}
+
+.mod-ticket-actions {
+  background: var(--color-b);
+  padding: var(--size-3);
+  display: flex;
+  gap: var(--size-3);
+}
+
+.mod-ticket-action-separator {
+  flex: 1;
+  color: var(--color-c);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--size-5);
+}
+
+.mod-ticket-action {
+  background: var(--color-a);
+  color: var(--color-d);
+  padding: var(--size-3) var(--size-4);
+  border-radius: var(--size-3);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--size-3);
+}
+
+.mod-ticket-action:hover {
+  box-shadow: var(--shadow-cs);
+}
+
+.mod-ticket-action:active {
+  box-shadow: var(--shadow-cl);
+  scale: 0.8;
+}
+
+.mod-ticket-action-icon {
+  width: var(--size-5);
+}
+
+.mod-ticket-action-text {
+  font-size: var(--size-4);
+}
+
+.mod-ticket-content {
+  padding: var(--size-4);
+  padding-top: var(--size-3);
+}
+
+.mod-ticket-title {
+  font-size: var(--size-7);
+  font-weight: bold;
+  color: var(--color-d);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mod-ticket-author {
+  font-size: var(--size-4);
+  color: var(--color-c);
+  opacity: 0.5;
+}
+
+@media screen and (max-width: 600px) {
+  .mod-ticket-action {
+    flex: 1;
+  }
+
+  .mod-ticket-action-separator {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .mod-ticket-action {
+    flex-direction: column;
+    gap: var(--size-2);
+  }
+
+  .mod-ticket-action-text {
+    font-size: var(--size-3);
+  }
+}
+

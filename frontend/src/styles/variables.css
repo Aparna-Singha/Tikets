@@ -1,0 +1,32 @@
+:root {
+  --color-a: #F5EEDD;
+  --color-b: #EBCB90;
+  --color-c: #B87C4C;
+  --color-d: #06202B;
+
+  --font-n: "Lexend", sans-serif;
+  --font-c: "Pacifico", cursive;
+  --font-m: "JetBrains Mono", monospace;
+
+  --size-1: 0.125rem;
+  --size-2: 0.25rem;
+  --size-3: 0.5rem;
+  --size-4: 1rem;
+  --size-5: 1.25rem;
+  --size-6: 1.5rem;
+  --size-7: 2rem;
+  --size-8: 4rem;
+
+  --border-1: var(--size-4) solid var(--color-c);
+  --border-2: var(--size-2) solid var(--color-c);
+
+  --shadow-as: 0 0 0 var(--size-1) var(--color-a);
+  --shadow-al: 0 0 0 var(--size-2) var(--color-a);
+  --shadow-bs: 0 0 0 var(--size-1) var(--color-b);
+  --shadow-bl: 0 0 0 var(--size-2) var(--color-b);
+  --shadow-cs: 0 0 0 var(--size-1) var(--color-c);
+  --shadow-cl: 0 0 0 var(--size-2) var(--color-c);
+  --shadow-ds: 0 0 0 var(--size-1) var(--color-d);
+  --shadow-dl: 0 0 0 var(--size-2) var(--color-d);
+}
+

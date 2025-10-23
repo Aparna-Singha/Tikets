@@ -1,0 +1,96 @@
+.navbar {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  box-shadow: var(--shadow-cl);
+  z-index: 10;
+}
+
+.navbar-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--size-4);
+  background: var(--color-b);
+  padding: var(--size-4) var(--size-8);
+}
+
+.navbar-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-count {
+  font-size: var(--size-7);
+  font-weight: bold;
+}
+
+.navbar-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--size-4);
+}
+
+.actions-button {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--size-3);
+  padding: var(--size-3) var(--size-4);
+  font-size: var(--size-4);
+  border-radius: var(--size-3);
+  font-weight: bold;
+}
+
+.actions-button > * {
+  height: 100%;
+  width: auto;
+}
+
+.actions-button:hover {
+  box-shadow: var(--shadow-cs);
+  scale: 1.05;
+}
+
+.actions-button:active {
+  box-shadow: var(--shadow-cl);
+  scale: 0.95;
+}
+
+.actions-button {
+  background: var(--color-a);
+}
+
+@media screen and (max-width: 900px) {
+  .navbar-bottom {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .navbar-content {
+    padding: var(--size-6);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .navbar-count {
+    font-size: var(--size-6);
+  }
+}
+
+@media screen and (max-width: 475px) {
+  .actions-button {
+    padding: var(--size-3);
+  }
+
+  .actions-button span {
+    display: none;
+  }
+}
+

@@ -1,0 +1,24 @@
+.auth-code {
+  display: flex;
+  justify-content: center;
+  gap: var(--size-2);
+}
+
+.auth-code-digit {
+  background: var(--color-c);
+  color: var(--color-a);
+  padding: var(--size-4) var(--size-4);
+  border-radius: var(--size-3);
+  font-size: var(--size-5);
+  font-weight: 600;
+  width: var(--size-8);
+  text-align: center;
+}
+
+.auth-code-loader {
+  width: var(--size-7);
+  height: var(--size-7);
+  color: var(--color-c);
+  animation: spin 1s linear infinite;
+}
+
