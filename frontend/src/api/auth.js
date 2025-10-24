@@ -8,6 +8,14 @@ export async function checkAuthStatus() {
   return signedIn;
 }
 
+export async function getUserData() {
+  const { user } = await callApi(
+    "/auth/status", "GET"
+  ) || { user: null };
+
+  return user;
+}
+
 export async function getAuthCode(email) {
   const { code } = await callApi(
     `/auth/code/${email}`, "GET"

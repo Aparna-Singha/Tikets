@@ -1,10 +1,47 @@
 .hero {
   display: flex;
+  flex-direction: column-reverse;
   width: 100%;
   padding: var(--size-4) var(--size-7);
-  gap: var(--size-7);
   align-items: center;
   justify-content: space-between;
+  text-align: center;
+}
+
+.hero-action {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: var(--size-8) 0;
+}
+
+.hero-action-button {
+  background-color: var(--color-b);
+  color: var(--color-d);
+  padding: var(--size-4) var(--size-8);
+  border-radius: var(--size-4);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: var(--size-4);
+}
+
+.hero-action-button:hover {
+  box-shadow: var(--shadow-cs);
+}
+
+.hero-action-button:active {
+  box-shadow: var(--shadow-cl);
+  scale: 0.8;
+}
+
+.hero-action-button-icon {
+  height: var(--size-7);
+  width: auto;
+}
+
+.hero-action-button-text {
+  font-size: var(--size-6);
 }
 
 .hero-content {
@@ -37,22 +74,20 @@
   align-items: center;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 600px) {
   .hero {
     flex-direction: column-reverse;
     padding: var(--size-4) var(--size-4);
     text-align: center;
     gap: 0;
   }
-
+  
   .hero-banner {
     margin-bottom: calc(var(--size-8) * -2);
     scale: 0.5;
     transform: translateY(calc(var(--size-8) * -2));
   }
-}
 
-@media screen and (max-width: 600px) {
   .hero-slogan {
     font-size: var(--size-7);
   }
@@ -60,10 +95,15 @@
   .hero-description {
     font-size: var(--size-4);
     text-wrap: wrap;
+    text-wrap-style: balance;
   }
 
-  .hero-description br {
-    display: none;
+  .hero-action-button {
+    padding: var(--size-4) var(--size-6);
+  }
+
+  .hero-action-button-text {
+    font-size: var(--size-5);
   }
 }
 

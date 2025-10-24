@@ -42,6 +42,8 @@ authRouter.get("/code/:email", async (req, res) => {
 authRouter.get("/status", (req, res) => {
   return res.status(200).json({
     signedIn: !!req.user,
+    user: req.user,
+    permissions: req.permissions,
   });
 });
 

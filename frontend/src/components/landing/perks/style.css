@@ -1,0 +1,42 @@
+.perks {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-7);
+  text-align: center;
+  padding: 0 var(--size-6);
+}
+
+.perks-title {
+  font-size: var(--size-8);
+  font-weight: 700;
+  color: var(--color-d);
+}
+
+.perks-content {
+  display: flex;
+  gap: var(--size-6);
+  justify-content: center;
+  align-items: stretch;
+}
+
+@media screen and (max-width: 800px) {
+  .perks {
+    padding: 0 var(--size-8);
+  }
+  
+  .perks-content {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .perks {
+    padding: 0 var(--size-6);
+  }
+  
+  .perks-title {
+    font-size: var(--size-7);
+  }
+}
+

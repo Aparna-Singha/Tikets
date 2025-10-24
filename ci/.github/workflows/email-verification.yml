@@ -1,0 +1,37 @@
+name: Email Verification
+on:
+  workflow_dispatch:
+
+jobs:
+  sync-redis:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run EchoAuth Sync
+        uses: AttAditya/echoauth@v1.0.2
+        with:
+          MAIL_SERVER: ${{ secrets.MAIL_SERVER }}
+          EMAIL: ${{ secrets.EMAIL }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+          REDIS_URL: ${{ secrets.REDIS_URL }}
+  
+  sync-mongo:
+    needs: sync-redis
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      
+      - name: Run Syncing Script
+        run: |
+          cd add-verification-codes
+          npm install
+          npm start
+        env:
+          REDIS_URL: ${{ secrets.REDIS_URL }}
+          MONGO_URI: ${{ secrets.MONGO_URI }}
+          JWT_SECRET: ${{ secrets.JWT_SECRET }}

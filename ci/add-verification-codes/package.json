@@ -1,0 +1,18 @@
+{
+  "name": "tikets-ebc",
+  "version": "1.0.0",
+  "description": "Tikets ELS-BE Connector",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node src/main.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.18.2",
+    "redis": "^5.8.2"
+  }
+}

@@ -1,0 +1,60 @@
+.landing-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--size-4);
+  width: calc(var(--size-8) * 7);
+  padding: var(--size-4);
+  border-radius: var(--size-6);
+  background: var(--color-b);
+  text-align: center;
+}
+
+.landing-card-top {
+  display: flex;
+  align-items: center;
+  gap: var(--size-3);
+}
+
+.landing-card-title {
+  color: var(--color-c);
+  font-size: var(--size-7);
+  font-weight: 600;
+}
+
+.landing-card-icon {
+  color: var(--color-c);
+  width: auto;
+  height: var(--size-7);
+}
+
+.landing-card-content {
+  background: var(--color-a);
+  border-radius: var(--size-4);
+  padding: var(--size-4);
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.landing-card-description {
+  font-size: var(--size-5);
+  color: var(--color-d);
+  line-height: 1.5;
+  text-wrap-style: balance;
+  font-weight: 200;
+}
+
+@media screen and (max-width: 800px) {
+  .landing-card {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .landing-card-title {
+    font-size: var(--size-6);
+  }
+}
+

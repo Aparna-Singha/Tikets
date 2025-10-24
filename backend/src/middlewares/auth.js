@@ -14,6 +14,7 @@ const authMiddleware = async (req, _, next) => {
   if (user.verified.includes(token))
     req.user = { email, name, org };
 
+  req.permissions = user?.permissions || [];
   return next();
 };
 
