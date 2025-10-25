@@ -13,7 +13,7 @@ export function AuthButton({
   return (<>
     <button
       className="auth-button"
-      disabled={disabled}
+      disabled={disabled || loading}
       onClick={onClick}
     >
       {

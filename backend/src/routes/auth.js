@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { hash, compare } from "bcrypt";
 
 import User from "#models/user.js";
 import { encode, decode } from "#utils/jwt.js";
@@ -65,10 +66,17 @@ authRouter.post("/password", async (req, res) => {
 
   if (!user) {
     const [ name, org ] = email.split("@");
-    user = await User.create({ email, name, org, password });
+    const salt = Number(process.env.SALT);
+    const hashed = await hash(password, salt);
+    
+    user = await User.create({
+      email, name, org,
+      password: hashed,
+    });
   }
 
-  if (user.password !== password) {
+  const passwordMatched = await compare(password, user.password);
+  if (!passwordMatched) {
     return res.status(401).json({
       success: false,
       message: "Invalid credentials",

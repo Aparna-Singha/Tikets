@@ -16,6 +16,10 @@ export function AuthForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [validating, setValidating] = useState(false);
+  const [message, setMessage] = useState([
+    "We will create an account with this",
+    "password if account does not already exist.",
+  ].join(" "));
 
   const backToEmail = useCallback(() => {
     setAuthPhase("email");
@@ -27,8 +31,15 @@ export function AuthForm() {
 
   const confirmedPassword = useCallback(async () => {
     setValidating(true);
-    const { success } = await submitPassword(email, password);
-    if (success) navigate("/");
+    setMessage([
+      "We will create an account with this",
+      "password if account does not already exist.",
+    ].join(" "));
+    
+    const data = await submitPassword(email, password);
+    if (data?.success) navigate("/");
+
+    setMessage("Auth Failed, Password Mismatch");
     setValidating(false);
   }, [email, password, navigate]);
 
@@ -54,8 +65,7 @@ export function AuthForm() {
         />}
 
         {authPhase === "password" && <p className="auth-info-text">
-          We will create an account with this
-          password if account does not already exist.
+          {message}
         </p>}
       </div>
 
