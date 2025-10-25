@@ -141,7 +141,7 @@ ticketRouter.put("/:orgId/ticket/:ticketId", async (req, res) => {
   const user = await User.findOne({ email });
 
   const allowUpdates = [
-    ticket.author.id !== req.user.email,
+    ticket.author.id === req.user.email,
     user.permissions.includes("manage"),
     user.permissions.includes("super-admin"),
   ];
