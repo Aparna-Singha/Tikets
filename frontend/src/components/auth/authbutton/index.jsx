@@ -1,3 +1,4 @@
+import { LoaderCircle } from "lucide-react";
 import "./style.css";
 
 export function AuthButton({
@@ -5,6 +6,7 @@ export function AuthButton({
   content,
   disabled,
   onClick,
+  loading = false,
 }) {
   const Icon = icon;
 
@@ -14,10 +16,16 @@ export function AuthButton({
       disabled={disabled}
       onClick={onClick}
     >
-      <Icon className="auth-button-icon" />
-      <span className="auth-button-text">
-        {content}
-      </span>
+      {
+        loading
+          ? <LoaderCircle className="auth-button-icon spin" />
+          : <>
+            <Icon className="auth-button-icon" />
+            <span className="auth-button-text">
+              {content}
+            </span>
+          </>
+      }
     </button>
   </>);
 }

@@ -29,7 +29,7 @@ export async function generateTicket(orgId) {
       ? ticket.author.name
       : "Anonymous",
   }))(
-    await callApi(`/tickets/${orgId}`, 'POST')
+    await callApi(`/tickets/${orgId}`, 'POST', {})
   ) || null;
 }
 

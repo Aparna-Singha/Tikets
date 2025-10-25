@@ -1,10 +1,16 @@
 .org-hero {
   display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding-bottom: var(--size-7);
+}
+
+.org-hero-top {
+  display: flex;
   align-items: center;
   justify-content: center;
   gap: var(--size-8);
-  padding: var(--size-8);
-  padding-top: var(--size-7);
+  padding: var(--size-7) var(--size-8);
 }
 
 .org-hero-icon {
@@ -40,18 +46,55 @@
   color: var(--color-b);
 }
 
+.org-hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--size-6);
+  padding: 0 var(--size-6);
+}
+
+.org-hero-action {
+  background: var(--color-b);
+  color: var(--color-c);
+  padding: var(--size-4) var(--size-6);
+  font-size: var(--size-4);
+  border: none;
+  border-radius: var(--size-4);
+  cursor: pointer;
+}
+
+.org-hero-action:not(:disabled):hover {
+  box-shadow: var(--shadow-cs);
+}
+
+.org-hero-action:not(:disabled):active {
+  box-shadow: var(--shadow-cl);
+  scale: 0.8;
+}
+
+.org-hero-action:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 @media screen and (max-width: 800px) {
-  .org-hero {
+  .org-hero-top {
     flex-direction: column;
     gap: var(--size-6);
   }
 }
 
 @media screen and (max-width: 600px) {
-  .org-hero {
+  .org-hero-top {
     padding: var(--size-6);
     padding-top: var(--size-5);
-    padding-bottom: var(--size-8);
+  }
+
+  .org-hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--size-4);
   }
 
   .org-hero-icon {

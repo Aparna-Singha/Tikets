@@ -1,44 +1,36 @@
-import { useCallback, useEffect, useState } from "react";
-import { Fingerprint, Lightbulb, Pen } from "lucide-react";
+import { useCallback, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Fingerprint, Pen } from "lucide-react";
 
-import { cancelAuth, getAuthCode } from "@api/auth";
+import { submitPassword } from "@api/auth";
 
-import { AuthCode } from "@components/auth/authcode";
-import { AuthEmail } from "@components/auth/authemail";
+import { AuthInput } from "@components/auth/authinput";
 import { AuthButton } from "@components/auth/authbutton";
 
 import "./style.css";
 
 export function AuthForm() {
+  const navigate = useNavigate();
+
   const [authPhase, setAuthPhase] = useState("email");
-  const [authCode, setAuthCode] = useState([]);
   const [email, setEmail] = useState("");
-  const [confirmedEmail, setConfirmedEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [validating, setValidating] = useState(false);
 
   const backToEmail = useCallback(() => {
     setAuthPhase("email");
   }, [setAuthPhase]);
 
   const getCode = useCallback(async () => {
-    setAuthPhase("code");
-    setConfirmedEmail(email);
-  }, [setAuthPhase, email]);
-  
-  useEffect(() => {
-    if (!confirmedEmail) return;
-    setAuthCode([]);
+    setAuthPhase("password");
+  }, [setAuthPhase]);
 
-    async function fetchCode() {
-      const previousEmail = localStorage.getItem("eals_previous_email");
-      if (confirmedEmail !== previousEmail) await cancelAuth();
-      
-      const code = await getAuthCode(confirmedEmail);
-      setAuthCode(code.toString().split(""));
-      localStorage.setItem("eals_previous_email", confirmedEmail);
-    }
-
-    fetchCode();
-  }, [confirmedEmail]);
+  const confirmedPassword = useCallback(async () => {
+    setValidating(true);
+    const { success } = await submitPassword(email, password);
+    if (success) navigate("/");
+    setValidating(false);
+  }, [email, password, navigate]);
 
   return (<>
     <div className="auth-box">
@@ -47,11 +39,24 @@ export function AuthForm() {
       </h1>
 
       <div className="auth-details">
-        {
-          authPhase === "email"
-            ? <AuthEmail email={email} setEmail={setEmail} />
-            : <AuthCode code={authCode} />
-        }
+        {authPhase === "email" && <AuthInput
+          value={email}
+          setValue={setEmail}
+          type={"email"}
+          placeholder={"Enter your email"}
+        />}
+
+        {authPhase === "password" && <AuthInput
+          value={password}
+          setValue={setPassword}
+          type={"password"}
+          placeholder={"Enter your password"}
+        />}
+
+        {authPhase === "password" && <p className="auth-info-text">
+          We will create an account with this
+          password if account does not already exist.
+        </p>}
       </div>
 
       <div className="auth-actions">
@@ -62,7 +67,15 @@ export function AuthForm() {
           onClick={getCode}
         />}
 
-        {authPhase === "code" && <AuthButton
+        {authPhase === "password" && <AuthButton
+          icon={Fingerprint}
+          content="Continue"
+          loading={validating}
+          disabled={!password}
+          onClick={confirmedPassword}
+        />}
+
+        {authPhase !== "email" && <AuthButton
           icon={Pen}
           content="Update Email"
           onClick={backToEmail}

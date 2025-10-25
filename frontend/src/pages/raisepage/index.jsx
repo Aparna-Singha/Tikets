@@ -191,7 +191,7 @@ export function RaisePage({ createNew = false }) {
     
     async function createTicket() {
       const { ticketId } = await generateTicket(orgId);
-      navigate(`/org/raise/${ticketId}`);
+      navigate(`/${orgId}/raise/${ticketId}`);
     }
 
     createTicket();

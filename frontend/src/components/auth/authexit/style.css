@@ -17,6 +17,7 @@
 }
 
 .auth-exit-details {
+  text-align: center;
   align-self: center;
   color: var(--color-c);
 }

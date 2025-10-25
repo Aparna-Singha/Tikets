@@ -16,12 +16,27 @@ export async function getUserData() {
   return user;
 }
 
+export async function getUserPermissions() {
+  const { permissions } = await callApi(
+    `/auth/status`, "GET"
+  ) || { permissions: [] };
+
+  return permissions;
+}
+
 export async function getAuthCode(email) {
   const { code } = await callApi(
     `/auth/code/${email}`, "GET"
   ) || { code: [] };
 
   return code;
+}
+
+export async function submitPassword(email, password) {
+  return await callApi("/auth/password", "POST", {
+    email,
+    password,
+  });
 }
 
 export async function cancelAuth() {

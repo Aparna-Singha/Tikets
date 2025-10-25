@@ -6,7 +6,14 @@ export const callApi = async (endpoint, method, body=null, retry=0) => {
     'Content-Type': 'application/json',
   };
 
-  body = method === "GET" ? null : JSON.stringify(body);
+  body = method === "GET"
+    ? null
+    : (
+      body
+        ? JSON.stringify(body)
+        : undefined
+    );
+  
   const url = `${API_BASE_URL}${endpoint}`;
   const options = {
     method,

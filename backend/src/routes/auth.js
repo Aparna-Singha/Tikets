@@ -54,5 +54,39 @@ authRouter.get("/sign-out", (_, res) => {
   });
 });
 
+authRouter.post("/password", async (req, res) => {
+  if (req.user) return res.status(400).json({
+    success: false,
+    message: "Already signed in",
+  });
+
+  const { email, password } = req.body;
+  let user = await User.findOne({ email });
+
+  if (!user) {
+    const [ name, org ] = email.split("@");
+    user = await User.create({ email, name, org, password });
+  }
+
+  if (user.password !== password) {
+    return res.status(401).json({
+      success: false,
+      message: "Invalid credentials",
+    });
+  }
+
+  const payload = { email };
+  const token = encode(payload);
+  res.setCookie("token", token);
+
+  user.verified.push(token);
+  await user.save();
+
+  return res.status(200).json({
+    success: true,
+    message: "Signed in successfully",
+  });
+});
+
 export default authRouter;
 
